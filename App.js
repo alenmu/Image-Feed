@@ -1,20 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Avatar from "./components/Avatar";
+import CardList from "./components/CardList";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Avatar initials={"FL"} size={35} backgroundColor={"teal"} />
-    </View>
-  );
+const items = [
+  { id: 0, author: "Bob Ross" },
+  { id: 1, author: "Chuck Norris" },
+];
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <CardList items={items} />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
