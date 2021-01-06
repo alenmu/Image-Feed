@@ -1,4 +1,10 @@
-import { Image, StyleSheet, View, ActivityIndicator } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  View,
+  ActivityIndicator,
+  Dimensions,
+} from "react-native";
 import PropTypes from "prop-types";
 import React from "react";
 import AuthorRow from "./AuthorRow";
@@ -30,12 +36,8 @@ export default class Card extends React.Component {
         <View style={styles.image}>
           {loading && (
             <ActivityIndicator style={StyleSheet.absoluteFill} size={"large"} />
-          )}{" "}
-          <Image
-            style={StyleSheet.absoluteFill}
-            source={image}
-            onLoad={this.handleLoad}
-          />{" "}
+          )}
+          <Image style={styles.card} source={image} onLoad={this.handleLoad} />
         </View>
       </View>
     );
@@ -46,5 +48,9 @@ const styles = StyleSheet.create({
   image: {
     aspectRatio: 1,
     backgroundColor: "rgba(0,0,0,0.02)",
+  },
+  card: {
+    width: Dimensions.get("screen").width,
+    height: Dimensions.get("screen").height / 2.2,
   },
 });

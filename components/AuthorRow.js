@@ -8,7 +8,6 @@ import getInitials from "../utils/getInitials";
 export default function AuthorRow({ fullname, linkText, onPressLinkText }) {
   return (
     <View style={styles.container}>
-      {" "}
       <Avatar
         size={35}
         initials={getInitials(fullname)}
